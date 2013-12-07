@@ -31,4 +31,5 @@ Detects whether a file is Ansible YAML based on the presence of a
 
 		ftdetect/ansible.vim
 		syntax/ansible.vim
+		syntax/include/yaml.vim
 		indent/ansible.vim
