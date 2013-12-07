@@ -10,25 +10,31 @@ endif
 
 let b:did_indent = 1
 
-setlocal autoindent sw=2 ts=2 sts=2 et
-setlocal indentexpr=GetYamlIndent()
-setlocal indentkeys=o,O,*<Return>,!^F
+setlocal sw=2 ts=2 sts=2 et
+setlocal indentexpr=GetAnsibleIndent(v:lnum)
+setlocal indentkeys=!^Fo,O,0#,<:>,-
+setlocal nosmartindent
 
-function! GetYamlIndent()
-  let prevlnum = v:lnum - 1
+" Only define the funciton once.
+if exists('*GetAnsibleIndent')
+  finish
+endif
+
+function GetAnsibleIndent(lnum)
+  let prevlnum = a:lnum - 1
   if prevlnum == 0
     return 0
   endif
-  let prevline = substitute(getline(prevlnum),'\s\+$','','')
+  let prevline = getline(prevlnum)
 
   let indent = indent(prevlnum)
   let increase = indent + &sw
 
-  if prevline =~ ':$'
+  if prevline =~ ':\s*$'
     return increase
-  elseif prevline =~ '^\s*-$'
+  elseif prevline =~ '^\s*-\s*$'
     return increase
-  elseif prevline =~ '^\s*-\s\+[^:]\+:.\+$'
+  elseif prevline =~ '^\s*-\s\+[^:]\+:\s*\S'
     return increase
   else
     return indent
