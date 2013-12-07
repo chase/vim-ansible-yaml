@@ -2,7 +2,7 @@
 
 Adds additional syntax highlighting and fixes indentation for Ansible's
 dialect of YAML.
-Detects the whether a file is Ansible YAML based on the presence of a
+Detects whether a file is Ansible YAML based on the presence of a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
 
 ## Install
