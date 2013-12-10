@@ -1,8 +1,8 @@
 # vim-ansible-yaml
 
-Adds additional syntax highlighting and fixes indentation for Ansible's
-dialect of YAML.
-Detects whether a file is Ansible YAML based on the presence of a
+Adds additional syntax highlighting and fixes indentation for Ansible's dialect of YAML.
+
+Ansible YAML files are detected based on the presence of a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
 
 ## Install
@@ -31,5 +31,11 @@ Detects whether a file is Ansible YAML based on the presence of a
 
 		ftdetect/ansible.vim
 		syntax/ansible.vim
+		syntax/include/jinja.vim
 		syntax/include/yaml.vim
 		indent/ansible.vim
+
+### TODO
+
+* Add support for Jinja highlighting on conditionals like `when` and `changed_when`
+* Fix highlighting of numbers and `-` mid-string
