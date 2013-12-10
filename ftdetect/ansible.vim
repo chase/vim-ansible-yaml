@@ -1,14 +1,19 @@
 " Determine if normal YAML or Ansible YAML
 " Language:         YAML (with Ansible)
 " Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2013-12-06
+" Latest Revision:  2013-12-09
+
+fun! s:SetupAnsible()
+  set filetype=ansible
+  set comments=:#
+endfun
 
 fun! s:SelectAnsible()
   let fp = expand("%:p")
   let dir = expand("%:p:h")
   " Check if buffer is file under any directory of a 'roles' directory
   if fp =~ 'roles/.*\.yml$'
-    set filetype=ansible
+    call s:SetupAnsible()
     return
   else
     " Check if subdirectories in buffer's directory match Ansible best practices
@@ -16,7 +21,7 @@ fun! s:SelectAnsible()
     call map(directories, 'fnamemodify(v:val, ":h:t")')
     for dir in directories
       if dir =~ '\v^%(group_vars|host_vars|roles)$'
-        set filetype=ansible
+        call s:SetupAnsible()
         return
       endif
     endfor
