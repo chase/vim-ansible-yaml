@@ -35,7 +35,7 @@ Ansible YAML files are detected based on the presence of a
 		syntax/include/yaml.vim
 		indent/ansible.vim
 
-### TODO
-
-* Add support for Jinja highlighting on conditionals like `when` and `changed_when`
-* Fix highlighting of numbers and `-` mid-string
+## Thanks
+A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](now@bitwi.se) for their work on the YAML syntax that this bundle uses.  
+Also, thank you, [Armin Ronacher](armin.ronacher@active-4.com), for the
+simple and effective Jinja syntax.
