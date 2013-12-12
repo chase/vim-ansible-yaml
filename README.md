@@ -36,6 +36,6 @@ Ansible YAML files are detected based on the presence of a
 		indent/ansible.vim
 
 ## Thanks
-A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](now@bitwi.se) for their work on the YAML syntax that this bundle uses.  
-Also, thank you, [Armin Ronacher](armin.ronacher@active-4.com), for the
-simple and effective Jinja syntax.
+A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.  
+Also, thank you, [Armin Ronacher](https://github.com/mitsuhiko), for the
+simple and effective Jinja syntax file.
