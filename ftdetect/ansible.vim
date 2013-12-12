@@ -6,6 +6,7 @@
 fun! s:SetupAnsible()
   set filetype=ansible
   set comments=:#
+  set commentstring=#\ %s
 endfun
 
 fun! s:SelectAnsible()
