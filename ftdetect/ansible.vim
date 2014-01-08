@@ -18,7 +18,7 @@ fun! s:SelectAnsible()
     return
   else
     " Check if subdirectories in buffer's directory match Ansible best practices
-    let directories=glob(fnameescape(dir).'/{,.}*/', 1, 1)
+    let directories=split(glob(fnameescape(dir).'/{,.}*/', 1), '\n')
     call map(directories, 'fnamemodify(v:val, ":h:t")')
     for dir in directories
       if dir =~ '\v^%(group_vars|host_vars|roles)$'
