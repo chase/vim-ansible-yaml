@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:         YAML (with Ansible)
 " Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2013-12-06
+" Latest Revision:  2014-06-28
 
 if !exists("main_syntax")
   if version < 600
@@ -21,8 +21,7 @@ unlet b:current_syntax
 
 syn case match
 
-syn keyword ansibleRepeat with_items with_nested with_fileglob with_together with_subelements with_sequence with_random_choice until retries delay
-      \with_first_found with_lines with_indexed_items with_flattened  contained containedin=yamlKey
+syn match ansibleRepeat '\<with_\w\+\>' contained containedin=yamlKey
 syn keyword ansibleConditional when changed_when  contained containedin=yamlKey
 syn region ansibleString  start='"' end='"' skip='\\"' display contains=jinjaVarBlock
 
