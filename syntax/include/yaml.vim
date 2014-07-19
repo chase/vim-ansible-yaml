@@ -17,6 +17,7 @@ endif
 
 let s:cpo_save = &cpo
 set cpo&vim
+setl re=0
 
 " Allows keyword matches containing -
 setl iskeyword+=-
