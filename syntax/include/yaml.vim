@@ -36,7 +36,7 @@ syn match   yamlDelimiter       "[-,:]\s*" containedin=yamlKey
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
-syn region  yamlMapping        start='\w\+\%(\s*\w\+\)*\s*\ze:' end='$' keepend contains=yamlKey
+syn region  yamlMapping        start='\w\+\%(\s*\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey
 syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained
 syn match   yamlValue          transparent '\w\+\s*$' contained
       \ contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
