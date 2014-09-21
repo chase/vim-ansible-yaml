@@ -1,3 +1,6 @@
+## SEEKING MAINTAINER
+If you would like to become the maintainer of this plugin, please make an issue citing at least one example of your work with Vimscript.
+
 # vim-ansible-yaml
 [![Gittip donate button](http://img.shields.io/gittip/Chase.svg?style=flat)](https://www.gittip.com/Chase/ "Donate weekly to this project using Gittip")
 [![PayPayl donate button](http://img.shields.io/badge/paypal-donate-yellow.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JA4ZUS8TSAEM2&item_name=vim%2dansible%2dyaml "Donate once-off to this project using Paypal")
