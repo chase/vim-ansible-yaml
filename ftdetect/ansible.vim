@@ -5,19 +5,13 @@
 
 autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
 
-fun! s:SetupAnsible()
-  set filetype=ansible
-  set comments=:#
-  set commentstring=#\ %s
-endfun
-
 fun! s:SelectAnsible()
   let fp = expand("<afile>:p")
   let dir = expand("<afile>:p:h")
 
   " Check if buffer is file under any directory of a 'roles' directory
   if fp =~ '/roles/.*\.yml$'
-    call s:SetupAnsible()
+    set filetype=ansible
     return
   endif
 
@@ -32,7 +26,7 @@ fun! s:SelectAnsible()
 
   for dir in directories
     if dir =~ '\v^%(group_vars|host_vars|roles)$'
-      call s:SetupAnsible()
+      set filetype=ansible
       return
     endif
   endfor
