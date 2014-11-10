@@ -3,6 +3,8 @@
 " Maintainer:       Chase Colman <chase@colman.io>
 " Latest Revision:  2013-12-09
 
+autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
+
 fun! s:SetupAnsible()
   set filetype=ansible
   set comments=:#
@@ -35,5 +37,3 @@ fun! s:SelectAnsible()
     endif
   endfor
 endfun
-
-autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
