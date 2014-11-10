@@ -10,8 +10,8 @@ fun! s:SetupAnsible()
 endfun
 
 fun! s:SelectAnsible()
-  let fp = expand("%:p")
-  let dir = expand("%:p:h")
+  let fp = expand("<afile>:p")
+  let dir = expand("<afile>:p:h")
   " Check if buffer is file under any directory of a 'roles' directory
   if fp =~ 'roles/.*\.yml$'
     call s:SetupAnsible()
