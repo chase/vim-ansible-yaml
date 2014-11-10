@@ -12,18 +12,22 @@ endfun
 fun! s:SelectAnsible()
   let fp = expand("<afile>:p")
   let dir = expand("<afile>:p:h")
+
   " Check if buffer is file under any directory of a 'roles' directory
   if fp =~ '/roles/.*\.yml$'
     call s:SetupAnsible()
     return
   endif
+
   " Check if subdirectories in buffer's directory match Ansible best practices
   if v:version < 704
     let directories=split(glob(fnameescape(dir) . '/{,.}*/', 1), '\n')
   else
     let directories=glob(fnameescape(dir) . '/{,.}*/', 1, 1)
   endif
+
   call map(directories, 'fnamemodify(v:val, ":h:t")')
+
   for dir in directories
     if dir =~ '\v^%(group_vars|host_vars|roles)$'
       call s:SetupAnsible()
@@ -31,4 +35,5 @@ fun! s:SelectAnsible()
     endif
   endfor
 endfun
+
 autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
