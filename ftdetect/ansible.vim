@@ -19,9 +19,9 @@ fun! s:SelectAnsible()
   else
     " Check if subdirectories in buffer's directory match Ansible best practices
     if v:version < 704
-      let directories=split(glob(fnameescape(dir).'/{,.}*/', 1), '\n')
+      let directories=split(glob(fnameescape(dir) . '/{,.}*/', 1), '\n')
     else
-      let directories=glob(fnameescape(dir).'/{,.}*/', 1, 1)
+      let directories=glob(fnameescape(dir) . '/{,.}*/', 1, 1)
     endif
     call map(directories, 'fnamemodify(v:val, ":h:t")')
     for dir in directories
