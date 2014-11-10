@@ -15,7 +15,7 @@ setlocal indentexpr=GetAnsibleIndent(v:lnum)
 setlocal indentkeys=!^Fo,O,0#,<:>,-
 setlocal nosmartindent
 
-" Only define the funciton once.
+" Only define the function once.
 if exists('*GetAnsibleIndent')
   finish
 endif
