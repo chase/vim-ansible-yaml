@@ -16,8 +16,8 @@ set cpo&vim
 
 let b:undo_ftplugin = "setl comments< commentstring<"
 
-set comments=:#
-set commentstring=#\ %s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
