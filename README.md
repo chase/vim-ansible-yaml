@@ -9,6 +9,7 @@ Adds additional syntax highlighting and fixes indentation for Ansible's dialect 
 
 Ansible YAML files are detected based on the presence of a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
+For details, see the Detection section below.
 
 ## Install
 
@@ -39,6 +40,15 @@ Ansible YAML files are detected based on the presence of a
 		syntax/include/jinja.vim
 		syntax/include/yaml.vim
 		indent/ansible.vim
+
+## Detection
+
+A file is recognized as an Ansible YAML file, and its filetype is set to `ansible`, if
+
+1. The extensions is `.yml`
+2. AND one of the following conditions holds:
+  1. The file is somewhere under a directory named `roles`.
+  2. The file is in the same directory as a directory (or file) named `group_vars`, `host_vars`, or `roles`.
 
 ## Thanks
 A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.  
