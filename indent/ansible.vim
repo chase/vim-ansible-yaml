@@ -30,7 +30,10 @@ function GetAnsibleIndent(lnum)
   let indent = indent(prevlnum)
   let increase = indent + &sw
 
-  if prevline =~ ':\s*$'
+  " Do not adjust indentation for comments
+  if prevline =~ '\%(^\|\s\)#'
+    return indent
+  elseif prevline =~ ':\s*[>|]?$'
     return increase
   elseif prevline =~ '^\s*-\s*$'
     return increase
