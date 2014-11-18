@@ -22,8 +22,8 @@ endif
 
 function GetAnsibleIndent(lnum)
   " Check whether the user has set g:ansible_options["ignore_blank_lines"].
-  let ignore_blanks = exists('g:ansible_options["ignore_blank_lines"]')
-	\ && g:ansible_options["ignore_blank_lines"]
+  let ignore_blanks = !exists('g:ansible_options["ignore_blank_lines"]')
+	\ || g:ansible_options["ignore_blank_lines"]
 
   let prevlnum = ignore_blanks ? prevnonblank(a:lnum - 1) : a:lnum - 1
   if prevlnum == 0

@@ -51,9 +51,9 @@ So far, there is only one option. Others may be added later.
 
 If you define
 
-    let g:ansible_options = {'ignore_blank_lines': 1}
+    let g:ansible_options = {'ignore_blank_lines': 0}
 
-in your vimrc file, then the indent function will ignore blank lines when calculating the indent of the current line. This is helpful if your style is to insert blank lines, as in
+in your vimrc file, then the indent function will remove all indent after a blank line. The default behavior is to ignore blank lines when calculating the indent of the current line. This is helpful if your style is to insert blank lines, as in
 
 ```
 tasks:
@@ -64,7 +64,7 @@ tasks:
     command: echo Good night, Dick.
 ```
 
-Any non-zero value has the same effect as `1`. If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is not present, or the value is `0`, then the indent function removes all indent after a blank line.
+If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is not present, or the value is not `0`, then the indent function uses the default behavior.
 
 ## Thanks
 A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.  
