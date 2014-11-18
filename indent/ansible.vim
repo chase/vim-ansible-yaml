@@ -1,7 +1,7 @@
 " Vim indent file
 " Language:         YAML (with Ansible)
 " Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2013-12-05
+" Latest Revision:  2014-11-18
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
@@ -21,7 +21,11 @@ if exists('*GetAnsibleIndent')
 endif
 
 function GetAnsibleIndent(lnum)
-  let prevlnum = a:lnum - 1
+  " Check whether the user has set g:ansible_options["ignore_blank_lines"].
+  let ignore_blanks = exists('g:ansible_options["ignore_blank_lines"]')
+	\ && g:ansible_options["ignore_blank_lines"]
+
+  let prevlnum = ignore_blanks ? prevnonblank(a:lnum - 1) : a:lnum - 1
   if prevlnum == 0
     return 0
   endif

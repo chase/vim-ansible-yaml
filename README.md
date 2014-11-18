@@ -45,6 +45,27 @@ A file is recognized as an Ansible YAML file, and its filetype is set to `ansibl
   1. The file is somewhere under a directory named `roles`.
   2. The file is in the same directory as a directory (or file) named `group_vars`, `host_vars`, or `roles`.
 
+## Configuration
+
+So far, there is only one option. Others may be added later.
+
+If you define
+
+    let g:ansible_options = {'ignore_blank_lines': 1}
+
+in your vimrc file, then the indent function will ignore blank lines when calculating the indent of the current line. This is helpful if your style is to insert blank lines, as in
+
+```
+tasks:
+  - name: Say hello.
+    command: echo Hello, world.
+
+  - name: Say good night, Dick.
+    command: echo Good night, Dick.
+```
+
+Any non-zero value has the same effect as `1`. If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is not present, or the value is `0`, then the indent function removes all indent after a blank line.
+
 ## Thanks
 A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.  
 Also, thank you, [Armin Ronacher](https://github.com/mitsuhiko), for the
