@@ -464,15 +464,6 @@ win_stat: >
 	get_md5=${2:true}
 endsnippet
 
-snippet win_feature
-win_feature: >
-	name=${1:# REQUIRED}
-	include_management_tools=${2:#True|False}
-	include_sub_features=${3:#True|False}
-	state=${4:#present|absent}
-	restart=${5:#True|False}
-endsnippet
-
 snippet win_service
 win_service: >
 	name=${1:# REQUIRED}
@@ -484,13 +475,6 @@ snippet win_get_url
 win_get_url: >
 	url=${1:# REQUIRED}
 	dest=${2:true}
-endsnippet
-
-snippet win_group
-win_group: >
-	name=${1:# REQUIRED}
-	state=${2:#present|absent}
-	description=${3}
 endsnippet
 
 snippet win_group
@@ -517,25 +501,6 @@ win_ping: >
 	data=${1:pong}
 endsnippet
 
-snippet win_service
-win_service: >
-	name=${1:# REQUIRED}
-	start_mode=${2:#auto|manual|disabled}
-	state=${3:#started|stopped|restarted}
-endsnippet
-
-snippet win_get_url
-win_get_url: >
-	url=${1:# REQUIRED}
-	dest=${2:true}
-endsnippet
-
-snippet win_stat
-win_stat: >
-	path=${1:# REQUIRED}
-	get_md5=${2:true}
-endsnippet
-
 snippet setup
 setup: >
 	filter=${1:*}
@@ -547,25 +512,6 @@ win_msi: >
 	path=${1:# REQUIRED}
 	creates=${2}
 	state=${3:#present|absent}
-endsnippet
-
-snippet win_user
-win_user: >
-	password=${1:# REQUIRED}
-	name=${2:# REQUIRED}
-	state=${3:#present|absent}
-endsnippet
-
-snippet win_msi
-win_msi: >
-	path=${1:# REQUIRED}
-	creates=${2}
-	state=${3:#present|absent}
-endsnippet
-
-snippet win_ping
-win_ping: >
-	data=${1:pong}
 endsnippet
 
 snippet mail
@@ -866,44 +812,31 @@ rabbitmq_vhost: >
 	state=${4:#present|absent}
 endsnippet
 
-snippet slurp
-slurp: >
-	src=${1:# REQUIRED}
-endsnippet
-
 snippet raw
 raw: ${1} >
-
-	free_form=${2:# REQUIRED}
-	executable=${1}
+	executable=${2}
 endsnippet
 
 snippet script
 script: ${1} >
-
-	free_form=${2:# REQUIRED}
-	creates=${3}
-	removes=${1}
+	creates=${2}
+	removes=${3}
 endsnippet
 
 snippet command
 command: ${1} >
-
-	free_form=${2:# REQUIRED}
-	creates=${3}
-	chdir=${4}
-	removes=${5}
-	executable=${1}
+	creates=${2}
+	chdir=${3}
+	removes=${4}
+	executable=${5}
 endsnippet
 
 snippet shell
 shell: ${1} >
-
-	free_form=${2:# REQUIRED}
-	creates=${3}
-	chdir=${4}
-	removes=${5}
-	executable=${1}
+	creates=${2}
+	chdir=${3}
+	removes=${4}
+	executable=${5}
 endsnippet
 
 snippet stat
@@ -1270,8 +1203,6 @@ endsnippet
 
 snippet include_vars
 include_vars: ${1} >
-
-	free_form=${1:# REQUIRED}
 endsnippet
 
 snippet fail
@@ -1417,12 +1348,6 @@ group: >
 	state=${2:#present|absent}
 	gid=${3}
 	system=${4:#yes|no}
-endsnippet
-
-snippet setup
-setup: >
-	filter=${1:*}
-	fact_path=${2:/etc/ansible/facts.d}
 endsnippet
 
 snippet modprobe
