@@ -25,16 +25,23 @@ For details, see the Detection section below.
         $ cd ~/.vim/bundle
         $ git clone git://github.com/chase/vim-ansible-yaml.git
 
+2. Install the help file. (Repeat this step if you get an updated version.) From inside vim,
+
+	:Helptags
+
 ### Normal
 
 1. Check out the repository and copy the following to `.vim/` directory or any
    other run time path, keeping their directory structure intact:
 
+		doc/ansible.txt
 		ftdetect/ansible.vim
 		syntax/ansible.vim
 		syntax/include/jinja.vim
 		syntax/include/yaml.vim
 		indent/ansible.vim
+
+2. Install the help file.  From inside vim,  `:helptags ~/.vim/doc`.
 
 ## Detection
 
