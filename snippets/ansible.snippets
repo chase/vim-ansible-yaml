@@ -10,9 +10,7 @@ snippet rollbar_deployment
 		validate_certs=${8:#yes|no}
 
 snippet logentries
-	logentries: >
-		path=${1:# REQUIRED}
-		state=${2:#present|absent}
+	logentries: path=${1:# REQUIRED} state=${2:#present|absent}
 
 snippet nagios
 	nagios: >
@@ -113,9 +111,7 @@ snippet datadog_event
 		validate_certs=${9:#yes|no}
 
 snippet monit
-	monit: >
-		state=${1:#present|started|stopped|restarted|monitored|unmonitored|reloaded}
-		name=${2:# REQUIRED}
+	monit: state=${1:#present|started|stopped|restarted|monitored|unmonitored|reloaded} name=${2:# REQUIRED}
 
 snippet redhat_subscription
 	redhat_subscription: >
@@ -130,15 +126,10 @@ snippet redhat_subscription
 		pool=${9:^$}
 
 snippet zypper
-	zypper: >
-		name=${1:# REQUIRED}
-		state=${2:#present|latest|absent}
-		disable_gpg_check=${3:#yes|no}
+	zypper: name=${1:# REQUIRED} state=${2:#present|latest|absent} disable_gpg_check=${3:#yes|no}
 
 snippet homebrew_cask
-	homebrew_cask: >
-		name=${1:# REQUIRED}
-		state=${2:#installed|uninstalled}
+	homebrew_cask: name=${1:# REQUIRED} state=${2:#installed|uninstalled}
 
 snippet yum
 	yum: >
@@ -159,10 +150,7 @@ snippet apt_repository
 		mode=${5:420}
 
 snippet pkgutil
-	pkgutil: >
-		state=${1:#present|absent|latest}
-		name=${2:# REQUIRED}
-		site=${3}
+	pkgutil: state=${1:#present|absent|latest} name=${2:# REQUIRED} site=${3}
 
 snippet apt
 	apt: >
@@ -208,9 +196,7 @@ snippet pkgng
 		annotation=${5}
 
 snippet openbsd_pkg
-	openbsd_pkg: >
-		state=${1:#present|latest|absent}
-		name=${2:# REQUIRED}
+	openbsd_pkg: state=${1:#present|latest|absent} name=${2:# REQUIRED}
 
 snippet gem
 	gem: >
@@ -225,10 +211,7 @@ snippet gem
 		gem_source=${9}
 
 snippet layman
-	layman: >
-		name=${1:# REQUIRED}
-		list_url=${2}
-		state=${3:#present|absent|updated}
+	layman: name=${1:# REQUIRED} list_url=${2} state=${3:#present|absent|updated}
 
 snippet composer
 	composer: >
@@ -241,9 +224,7 @@ snippet composer
 		optimize_autoloader=${7:#yes|no}
 
 snippet pkgin
-	pkgin: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
+	pkgin: name=${1:# REQUIRED} state=${2:#present|absent}
 
 snippet zypper_repository
 	zypper_repository: >
@@ -275,15 +256,10 @@ snippet cpanm
 		mirror=${5:false}
 
 snippet homebrew_tap
-	homebrew_tap: >
-		tap=${1:# REQUIRED}
-		state=${2:#present|absent}
+	homebrew_tap: tap=${1:# REQUIRED} state=${2:#present|absent}
 
 snippet portinstall
-	portinstall: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
-		use_packages=${3:#yes|no}
+	portinstall: name=${1:# REQUIRED} state=${2:#present|absent} use_packages=${3:#yes|no}
 
 snippet homebrew
 	homebrew: >
@@ -314,10 +290,7 @@ snippet apt_key
 		id=${8}
 
 snippet opkg
-	opkg: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
-		update_cache=${3:#yes|no}
+	opkg: name=${1:# REQUIRED} state=${2:#present|absent} update_cache=${3:#yes|no}
 
 snippet rhn_register
 	rhn_register: >
@@ -337,16 +310,10 @@ snippet easy_install
 		executable=${5}
 
 snippet swdepot
-	swdepot: >
-		state=${1:#present|latest|absent}
-		name=${2:# REQUIRED}
-		depot=${3}
+	swdepot: state=${1:#present|latest|absent} name=${2:# REQUIRED} depot=${3}
 
 snippet rpm_key
-	rpm_key: >
-		key=${1:# REQUIRED}
-		state=${2:#present|absent}
-		validate_certs=${3:#yes|no}
+	rpm_key: key=${1:# REQUIRED} state=${2:#present|absent} validate_certs=${3:#yes|no}
 
 snippet portage
 	portage: >
@@ -365,23 +332,13 @@ snippet portage
 		verbose=${13:#yes}
 
 snippet macports
-	macports: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent|active|inactive}
-		update_cache=${3:#yes|no}
+	macports: name=${1:# REQUIRED} state=${2:#present|absent|active|inactive} update_cache=${3:#yes|no}
 
 snippet pacman
-	pacman: >
-		recurse=${1:#yes|no}
-		state=${2:#present|absent}
-		update_cache=${3:#yes|no}
-		name=${4}
+	pacman: recurse=${1:#yes|no} state=${2:#present|absent} update_cache=${3:#yes|no} name=${4}
 
 snippet apt_rpm
-	apt_rpm: >
-		pkg=${1:# REQUIRED}
-		state=${2:#absent|present}
-		update_cache=${3:#yes|no}
+	apt_rpm: pkg=${1:# REQUIRED} state=${2:#absent|present} update_cache=${3:#yes|no}
 
 snippet urpmi
 	urpmi: >
@@ -392,13 +349,10 @@ snippet urpmi
 		update_cache=${5:#yes|no}
 
 snippet add_host
-	add_host: >
-		name=${1:# REQUIRED}
-		groups=${2}
+	add_host: name=${1:# REQUIRED} groups=${2}
 
 snippet group_by
-	group_by: >
-		key=${1:# REQUIRED}
+	group_by: key=${1:# REQUIRED}
 
 snippet win_feature
 	win_feature: >
@@ -409,51 +363,31 @@ snippet win_feature
 		restart=${5:#True|False}
 
 snippet win_stat
-	win_stat: >
-		path=${1:# REQUIRED}
-		get_md5=${2:true}
+	win_stat: path=${1:# REQUIRED} get_md5=${2:true}
 
 snippet win_service
-	win_service: >
-		name=${1:# REQUIRED}
-		start_mode=${2:#auto|manual|disabled}
-		state=${3:#started|stopped|restarted}
+	win_service: name=${1:# REQUIRED} start_mode=${2:#auto|manual|disabled} state=${3:#started|stopped|restarted}
 
 snippet win_get_url
-	win_get_url: >
-		url=${1:# REQUIRED}
-		dest=${2:true}
+	win_get_url: url=${1:# REQUIRED} dest=${2:true}
 
 snippet win_group
-	win_group: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
-		description=${3}
+	win_group: name=${1:# REQUIRED} state=${2:#present|absent} description=${3}
 
 snippet slurp
-	slurp: >
-		src=${1:# REQUIRED}
+	slurp: src=${1:# REQUIRED}
 
 snippet win_user
-	win_user: >
-		password=${1:# REQUIRED}
-		name=${2:# REQUIRED}
-		state=${3:#present|absent}
+	win_user: password=${1:# REQUIRED} name=${2:# REQUIRED} state=${3:#present|absent}
 
 snippet win_ping
-	win_ping: >
-		data=${1:pong}
+	win_ping: data=${1:pong}
 
 snippet setup
-	setup: >
-		filter=${1:*}
-		fact_path=${2:/etc/ansible/facts.d}
+	setup: filter=${1:*} fact_path=${2:/etc/ansible/facts.d}
 
 snippet win_msi
-	win_msi: >
-		path=${1:# REQUIRED}
-		creates=${2}
-		state=${3:#present|absent}
+	win_msi: path=${1:# REQUIRED} creates=${2} state=${3:#present|absent}
 
 snippet mail
 	mail: >
@@ -492,9 +426,7 @@ snippet twilio
 		account_sid=${5:# REQUIRED}
 
 snippet osx_say
-	osx_say: >
-		msg=${1:# REQUIRED}
-		voice=${2}
+	osx_say: msg=${1:# REQUIRED} voice=${2}
 
 snippet grove
 	grove: >
@@ -557,11 +489,7 @@ snippet flowdock
 		validate_certs=${13:#yes|no}
 
 snippet typetalk
-	typetalk: >
-		topic=${1:# REQUIRED}
-		client_secret=${2:# REQUIRED}
-		client_id=${3:# REQUIRED}
-		msg=${4:# REQUIRED}
+	typetalk: topic=${1:# REQUIRED} client_secret=${2:# REQUIRED} client_id=${3:# REQUIRED} msg=${4:# REQUIRED}
 
 snippet irc
 	irc: >
@@ -605,14 +533,10 @@ snippet mqtt
 		password=${9}
 
 snippet async_status
-	async_status: >
-		jid=${1:# REQUIRED}
-		mode=${2:#status|cleanup}
+	async_status: jid=${1:# REQUIRED} mode=${2:#status|cleanup}
 
 snippet apache2_module
-	apache2_module: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
+	apache2_module: name=${1:# REQUIRED} state=${2:#present|absent}
 
 snippet jira
 	jira: >
@@ -639,11 +563,7 @@ snippet ejabberd_user
 		state=${5:#present|absent}
 
 snippet jboss
-	jboss: >
-		deployment=${1:# REQUIRED}
-		src=${2}
-		deploy_path=${3:/var/lib/jbossas/standalone/deployments}
-		state=${4:#present|absent}
+	jboss: deployment=${1:# REQUIRED} src=${2} deploy_path=${3:/var/lib/jbossas/standalone/deployments} state=${4:#present|absent}
 
 snippet django_manage
 	django_manage: >
@@ -700,11 +620,7 @@ snippet rabbitmq_policy
 		vhost=${7:/}
 
 snippet rabbitmq_plugin
-	rabbitmq_plugin: >
-		names=${1:# REQUIRED}
-		state=${2:#enabled|disabled}
-		new_only=${3:#yes|no}
-		prefix=${4}
+	rabbitmq_plugin: names=${1:# REQUIRED} state=${2:#enabled|disabled} new_only=${3:#yes|no} prefix=${4}
 
 snippet rabbitmq_user
 	rabbitmq_user: >
@@ -720,20 +636,13 @@ snippet rabbitmq_user
 		password=${10}
 
 snippet rabbitmq_vhost
-	rabbitmq_vhost: >
-		name=${1:# REQUIRED}
-		node=${2:rabbit}
-		tracing=${3:#yes|no}
-		state=${4:#present|absent}
+	rabbitmq_vhost: name=${1:# REQUIRED} node=${2:rabbit} tracing=${3:#yes|no} state=${4:#present|absent}
 
 snippet raw
-	raw: ${1} >
-		executable=${2}
+	raw: ${1} executable=${2}
 
 snippet script
-	script: ${1} >
-		creates=${2}
-		removes=${3}
+	script: ${1} creates=${2} removes=${3}
 
 snippet command
 	command: ${1} >
@@ -750,10 +659,7 @@ snippet shell
 		executable=${5}
 
 snippet stat
-	stat: >
-		path=${1:# REQUIRED}
-		get_md5=${2:true}
-		follow=${3:false}
+	stat: path=${1:# REQUIRED} get_md5=${2:true} follow=${3:false}
 
 snippet acl
 	acl: >
@@ -767,11 +673,7 @@ snippet acl
 		permissions=${8}
 
 snippet unarchive
-	unarchive: >
-		dest=${1:# REQUIRED}
-		src=${2:# REQUIRED}
-		copy=${3:#yes|no}
-		creates=${4}
+	unarchive: dest=${1:# REQUIRED} src=${2:# REQUIRED} copy=${3:#yes|no} creates=${4}
 
 snippet fetch
 	fetch: >
@@ -780,21 +682,6 @@ snippet fetch
 		validate_md5=${3:#yes|no}
 		fail_on_missing=${4:#yes|no}
 		flat=${5}
-
-snippet file
-	file: >
-		path=${1:[]}
-		src=${2}
-		serole=${3}
-		force=${4:#yes|no}
-		selevel=${5:s0}
-		seuser=${6}
-		recurse=${7:#yes|no}
-		setype=${8}
-		group=${9}
-		state=${10:#file|link|directory|hard|touch|absent}
-		mode=${11}
-		owner=${12}
 
 snippet file
 	file: >
@@ -862,11 +749,7 @@ snippet synchronize
 		delete=${21:#yes|no}
 
 snippet template
-	template: >
-		dest=${1:# REQUIRED}
-		src=${2:# REQUIRED}
-		validate=${3}
-		backup=${4:#yes|no}
+	template: dest=${1:# REQUIRED} src=${2:# REQUIRED} validate=${3} backup=${4:#yes|no}
 
 snippet bigip_node
 	bigip_node: >
@@ -899,11 +782,7 @@ snippet bigip_monitor_http
 		parent_partition=${16:common}
 
 snippet arista_vlan
-	arista_vlan: >
-		vlan_id=${1:# REQUIRED}
-		state=${2:#present|absent}
-		logging=${3:#true|false|yes|no}
-		name=${4}
+	arista_vlan: vlan_id=${1:# REQUIRED} state=${2:#present|absent} logging=${3:#true|false|yes|no} name=${4}
 
 snippet bigip_monitor_tcp
 	bigip_monitor_tcp: >
@@ -925,10 +804,7 @@ snippet bigip_monitor_tcp
 		type=${16:#TTYPE_TCP|TTYPE_TCP_ECHO|TTYPE_TCP_HALF_OPEN}
 
 snippet openvswitch_bridge
-	openvswitch_bridge: >
-		bridge=${1:# REQUIRED}
-		state=${2:#present|absent}
-		timeout=${3:5}
+	openvswitch_bridge: bridge=${1:# REQUIRED} state=${2:#present|absent} timeout=${3:5}
 
 snippet dnsimple
 	dnsimple: >
@@ -957,11 +833,7 @@ snippet dnsmadeeasy
 		validate_certs=${9:#yes|no}
 
 snippet openvswitch_port
-	openvswitch_port: >
-		bridge=${1:# REQUIRED}
-		port=${2:# REQUIRED}
-		state=${3:#present|absent}
-		timeout=${4:5}
+	openvswitch_port: bridge=${1:# REQUIRED} port=${2:# REQUIRED} state=${3:#present|absent} timeout=${4:5}
 
 snippet bigip_pool_member
 	bigip_pool_member: >
@@ -1052,9 +924,7 @@ snippet accelerate
 		ipv6=${5:false}
 
 snippet debug
-	debug: >
-		msg=${1:hello world!}
-		var=${2}
+	debug: msg=${1:hello world!} var=${2}
 
 snippet wait_for
 	wait_for: >
@@ -1067,30 +937,22 @@ snippet wait_for
 		port=${7}
 
 snippet assert
-	assert: >
-		that=${1:# REQUIRED}
+	assert: that=${1:# REQUIRED}
 
 snippet set_fact
-	set_fact: >
-		key_value=${1:# REQUIRED}
+	set_fact: key_value=${1:# REQUIRED}
 
 snippet pause
-	pause: >
-		seconds=${1}
-		minutes=${2}
-		prompt=${3}
+	pause: seconds=${1} minutes=${2} prompt=${3}
 
 snippet include_vars
-	include_vars: ${1} >
+	include_vars: ${1}
 
 snippet fail
-	fail: >
-		msg=${1:'failed as requested from task'}
+	fail: msg=${1:'failed as requested from task'}
 
 snippet fireball
-	fireball: >
-		minutes=${1:30}
-		port=${2:5099}
+	fireball: minutes=${1:30} port=${2:5099}
 
 snippet mount
 	mount: >
@@ -1104,10 +966,7 @@ snippet mount
 		opts=${8}
 
 snippet seboolean
-	seboolean: >
-		state=${1:#yes|no}
-		name=${2:# REQUIRED}
-		persistent=${3:#yes|no}
+	seboolean: state=${1:#yes|no} name=${2:# REQUIRED} persistent=${3:#yes|no}
 
 snippet at
 	at: >
@@ -1128,9 +987,7 @@ snippet authorized_key
 		manage_dir=${6:#yes|no}
 
 snippet locale_gen
-	locale_gen: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
+	locale_gen: name=${1:# REQUIRED} state=${2:#present|absent}
 
 snippet user
 	user: >
@@ -1202,36 +1059,19 @@ snippet firewalld
 		port=${7}
 
 snippet capabilities
-	capabilities: >
-		capability=${1:# REQUIRED}
-		path=${2:# REQUIRED}
-		state=${3:#present|absent}
+	capabilities: capability=${1:# REQUIRED} path=${2:# REQUIRED} state=${3:#present|absent}
 
 snippet group
-	group: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
-		gid=${3}
-		system=${4:#yes|no}
+	group: name=${1:# REQUIRED} state=${2:#present|absent} gid=${3} system=${4:#yes|no}
 
 snippet modprobe
-	modprobe: >
-		name=${1:# REQUIRED}
-		state=${2:#present|absent}
-		params=${3}
+	modprobe: name=${1:# REQUIRED} state=${2:#present|absent} params=${3}
 
 snippet alternatives
-	alternatives: >
-		path=${1:# REQUIRED}
-		name=${2:# REQUIRED}
-		link=${3}
+	alternatives: path=${1:# REQUIRED} name=${2:# REQUIRED} link=${3}
 
 snippet filesystem
-	filesystem: >
-		dev=${1:# REQUIRED}
-		fstype=${2:# REQUIRED}
-		force=${3:#yes|no}
-		opts=${4}
+	filesystem: dev=${1:# REQUIRED} fstype=${2:# REQUIRED} force=${3:#yes|no} opts=${4}
 
 snippet sysctl
 	sysctl: >
@@ -1244,14 +1084,10 @@ snippet sysctl
 		value=${7}
 
 snippet hostname
-	hostname: >
-		name=${1:# REQUIRED}
+	hostname: name=${1:# REQUIRED}
 
 snippet kernel_blacklist
-	kernel_blacklist: >
-		name=${1:# REQUIRED}
-		blacklist_file=${2}
-		state=${3:#present|absent}
+	kernel_blacklist: name=${1:# REQUIRED} blacklist_file=${2} state=${3:#present|absent}
 
 snippet lvg
 	lvg: >
@@ -1345,10 +1181,7 @@ snippet open_iscsi
 		port=${10:3260}
 
 snippet selinux
-	selinux: >
-		state=${1:#enforcing|permissive|disabled}
-		policy=${2}
-		conf=${3:/etc/selinux/config}
+	selinux: state=${1:#enforcing|permissive|disabled} policy=${2} conf=${3:/etc/selinux/config}
 
 snippet hg
 	hg: >
@@ -2226,8 +2059,7 @@ snippet linode
 		wait=${13:#yes|no}
 
 snippet ec2_facts
-	ec2_facts: >
-		validate_certs=${1:#yes|no}
+	ec2_facts: validate_certs=${1:#yes|no}
 
 snippet rax_cbs_attachments
 	rax_cbs_attachments: >
