@@ -36,11 +36,10 @@ syn match   yamlDelimiter       "[-,:]\s*" contained
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
-syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey
+syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey,yamlScalar
 syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained contains=yamlTimestamp
-syn match   yamlValue          transparent '\S\+\s*$' contained contains=@yamlTypes
 syn cluster yamlTypes          contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
-syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=yamlScalar,yamlValue contains=yamlDelimiter
+syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=@yamlTypes contains=yamlDelimiter
 
 " Predefined data types
 
