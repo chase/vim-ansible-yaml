@@ -32,15 +32,15 @@ syn region  yamlComment         display oneline start='\%(^\|\s\)#' end='$'
 syn match   yamlNodeProperty    "!\%(![^\\^%     ]\+\|[^!][^:/   ]*\)"
 syn match   yamlAnchor          "&.\+"
 syn match   yamlAlias           "\*.\+"
-syn match   yamlDelimiter       "[-,:]\s*" containedin=yamlKey
+syn match   yamlDelimiter       "[-,:]\s*" contained
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
 syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey
-syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained
+syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained contains=yamlTimestamp
 syn match   yamlValue          transparent '\S\+\s*$' contained contains=@yamlTypes
 syn cluster yamlTypes          contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
-syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=yamlScalar,yamlValue
+syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=yamlScalar,yamlValue contains=yamlDelimiter
 
 " Predefined data types
 
@@ -68,7 +68,7 @@ syn match   yamlConstant        '\<[~yn]\s*$' contained
 syn keyword yamlNull            null Null NULL nil Nil NIL contained
 syn match   yamlNull            "\W[~]\(\W\|$\)" contained
 
-syn match   yamlTimestamp       '\d\d\d\d-\%(1[0-2]\|\d\)-\%(3[0-2]\|2\d\|1\d\|\d\)\%( \%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d [+-]\%([01]\d\|2[0-3]\):[0-5]\d\|t\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d[+-]\%([01]\d\|2[0-3]\):[0-5]\d\|T\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\dZ\)\=' containedin=yamlScalar
+syn match   yamlTimestamp       '\d\d\d\d-\%(1[0-2]\|\d\)-\%(3[0-2]\|2\d\|1\d\|\d\)\%( \%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d [+-]\%([01]\d\|2[0-3]\):[0-5]\d\|t\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d[+-]\%([01]\d\|2[0-3]\):[0-5]\d\|T\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\dZ\)\=' contained
 
 " Single and double quoted scalars
 syn region  yamlString          oneline start="'" end="'" skip="\\'"
