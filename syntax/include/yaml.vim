@@ -45,24 +45,24 @@ syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=yaml
 " Predefined data types
 
 " Yaml Integer type
-syn match   yamlInteger         "\<[-+]\?\(0\|[1-9][0-9,]*\)\>" contained
-syn match   yamlInteger         "\<[-+]\?0[xX][0-9a-fA-F,]\+\>" contained
+syn match   yamlInteger         "\<[-+]\?\(0\|[1-9][0-9,]*\)\s*$" contained
+syn match   yamlInteger         "\<[-+]\?0[xX][0-9a-fA-F,]\+\s*$" contained
 
 " floating point number
-syn match   yamlFloating    "\<\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=\>" contained
-syn match   yamlFloating    "\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>" contained
-syn match   yamlFloating    "\<\d\+e[-+]\=\d\+[fl]\=\>" contained
-syn match   yamlFloating    "\<\(([+-]\?inf)\)\|\((NaN)\)\>" contained
-syn match   yamlNumber      '\<[+-]\=\d\+\%(\.\d\+\%([eE][+-]\=\d\+\)\=\)\=\>' contained
-syn match   yamlNumber      '\<0\o\+\>' contained
-syn match   yamlNumber      '\<0x\x\+\>' contained
-syn match   yamlNumber      '\<([+-]\=[iI]nf)\>' contained
+syn match   yamlFloating    "\<\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=\s*$" contained
+syn match   yamlFloating    "\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\s*$" contained
+syn match   yamlFloating    "\<\d\+e[-+]\=\d\+[fl]\=\s*$" contained
+syn match   yamlFloating    "\<\(([+-]\?inf)\).*$\|\((NaN)\)\s*$" contained
+syn match   yamlNumber      '\<[+-]\=\d\+\%(\.\d\+\%([eE][+-]\=\d\+\)\=\)\=\s*$' contained
+syn match   yamlNumber      '\<0\o\+\s*$' contained
+syn match   yamlNumber      '\<0x\x\+\s*$' contained
+syn match   yamlNumber      '\<([+-]\=[iI]nf)\s*$' contained
 
 " Boolean
 syn keyword yamlBoolean         true True TRUE false False FALSE yes Yes YES no No NO on On ON off Off OFF contained
 syn match   yamlBoolean         ":.*\zs\W[+-]\(\W\|$\)" contained
 
-syn match   yamlConstant        '\<[~yn]\>' contained
+syn match   yamlConstant        '\<[~yn]\s*$' contained
 
 " Null
 syn keyword yamlNull            null Null NULL nil Nil NIL contained
