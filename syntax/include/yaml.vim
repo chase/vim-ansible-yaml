@@ -1,9 +1,9 @@
 " Vim syntax file
-" Language:  YAML (YAML Ain't Markup Language)
-" Maintainer:Chase Colman <chase@colman.io>
-" Author:	   Igor Vergeichik <iverg@mail.ru>
-" Author:    Nikolai Weibull <now@bitwi.se>
-" Sponsor:   Tom Sawyer <transfire@gmail.com>
+" Language:        YAML (YAML Ain't Markup Language)
+" Maintainer:      Chase Colman <chase@colman.io>
+" Author:          Igor Vergeichik <iverg@mail.ru>
+" Author:          Nikolai Weibull <now@bitwi.se>
+" Sponsor:         Tom Sawyer <transfire@gmail.com>
 " Latest Revision: 2014-06-28
 
 if !exists("main_syntax")
@@ -32,65 +32,64 @@ syn region  yamlComment         display oneline start='\%(^\|\s\)#' end='$'
 syn match   yamlNodeProperty    "!\%(![^\\^%     ]\+\|[^!][^:/   ]*\)"
 syn match   yamlAnchor          "&.\+"
 syn match   yamlAlias           "\*.\+"
-syn match   yamlDelimiter       "[-,:]\s*" containedin=yamlKey
+syn match   yamlDelimiter       "[-,:]\s*" contained
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
-syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey
-syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained
-syn match   yamlValue          transparent '\w\+\s*$' contained
-      \ contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
-syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=yamlScalar,yamlValue
+syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey,yamlScalar
+syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained contains=yamlTimestamp
+syn cluster yamlTypes          contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
+syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=@yamlTypes contains=yamlDelimiter
 
 " Predefined data types
 
 " Yaml Integer type
-syn match   yamlInteger	        "\<[-+]\?\(0\|[1-9][0-9,]*\)\>" contained
-syn match   yamlInteger	        "\<[-+]\?0[xX][0-9a-fA-F,]\+\>" contained
+syn match   yamlInteger         "\<[-+]\?\(0\|[1-9][0-9,]*\)\s*$" contained
+syn match   yamlInteger         "\<[-+]\?0[xX][0-9a-fA-F,]\+\s*$" contained
 
 " floating point number
-syn match   yamlFloating		"\<\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=\>" contained
-syn match   yamlFloating		"\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>" contained
-syn match   yamlFloating		"\<\d\+e[-+]\=\d\+[fl]\=\>" contained
-syn match   yamlFloating		"\<\(([+-]\?inf)\)\|\((NaN)\)\>" contained
-syn match   yamlNumber      '\<[+-]\=\d\+\%(\.\d\+\%([eE][+-]\=\d\+\)\=\)\=\>' contained
-syn match   yamlNumber      '\<0\o\+\>' contained
-syn match   yamlNumber      '\<0x\x\+\>' contained
-syn match   yamlNumber      '\<([+-]\=[iI]nf)\>' contained
+syn match   yamlFloating    "\<\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=\s*$" contained
+syn match   yamlFloating    "\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\s*$" contained
+syn match   yamlFloating    "\<\d\+e[-+]\=\d\+[fl]\=\s*$" contained
+syn match   yamlFloating    "\<\(([+-]\?inf)\).*$\|\((NaN)\)\s*$" contained
+syn match   yamlNumber      '\<[+-]\=\d\+\%(\.\d\+\%([eE][+-]\=\d\+\)\=\)\=\s*$' contained
+syn match   yamlNumber      '\<0\o\+\s*$' contained
+syn match   yamlNumber      '\<0x\x\+\s*$' contained
+syn match   yamlNumber      '\<([+-]\=[iI]nf)\s*$' contained
 
 " Boolean
 syn keyword yamlBoolean         true True TRUE false False FALSE yes Yes YES no No NO on On ON off Off OFF contained
 syn match   yamlBoolean         ":.*\zs\W[+-]\(\W\|$\)" contained
 
-syn match   yamlConstant        '\<[~yn]\>' contained
+syn match   yamlConstant        '\<[~yn]\s*$' contained
 
 " Null
 syn keyword yamlNull            null Null NULL nil Nil NIL contained
 syn match   yamlNull            "\W[~]\(\W\|$\)" contained
 
-syn match   yamlTimestamp       '\d\d\d\d-\%(1[0-2]\|\d\)-\%(3[0-2]\|2\d\|1\d\|\d\)\%( \%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d [+-]\%([01]\d\|2[0-3]\):[0-5]\d\|t\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d[+-]\%([01]\d\|2[0-3]\):[0-5]\d\|T\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\dZ\)\=' containedin=yamlScalar
+syn match   yamlTimestamp       '\d\d\d\d-\%(1[0-2]\|\d\)-\%(3[0-2]\|2\d\|1\d\|\d\)\%( \%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d [+-]\%([01]\d\|2[0-3]\):[0-5]\d\|t\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\d\d[+-]\%([01]\d\|2[0-3]\):[0-5]\d\|T\%([01]\d\|2[0-3]\):[0-5]\d:[0-5]\d.\dZ\)\=' contained
 
 " Single and double quoted scalars
-syn region  yamlString	        oneline start="'" end="'" skip="\\'"
+syn region  yamlString          oneline start="'" end="'" skip="\\'"
                                 \ contains=yamlSingleEscape
-syn region  yamlString	        oneline start='"' end='"' skip='\\"'
+syn region  yamlString          oneline start='"' end='"' skip='\\"'
                                 \ contains=yamlEscape
 
 " Escaped symbols
 " every charater preceeded with slash is escaped one
-syn match   yamlEscape		    "\\."
+syn match   yamlEscape        "\\."
 " 2,4 and 8-digit escapes
-syn match   yamlEscape		    "\\\(x\x\{2\}\|u\x\{4\}\|U\x\{8\}\)"
-syn match   yamlEscape          contained display +\\[\\"abefnrtv^0_ NLP]+
-syn match   yamlEscape          contained display '\\x\x\{2}'
-syn match   yamlEscape          contained display '\\u\x\{4}'
-syn match   yamlEscape          contained display '\\U\x\{8}'
-syn match   yamlEscape          display '\\\%(\r\n\|[\r\n]\)'
-syn match   yamlSingleEscape    contained display +''+
+syn match   yamlEscape        "\\\(x\x\{2\}\|u\x\{4\}\|U\x\{8\}\)"
+syn match   yamlEscape        contained display +\\[\\"abefnrtv^0_ NLP]+
+syn match   yamlEscape        contained display '\\x\x\{2}'
+syn match   yamlEscape        contained display '\\u\x\{4}'
+syn match   yamlEscape        contained display '\\U\x\{8}'
+syn match   yamlEscape        display '\\\%(\r\n\|[\r\n]\)'
+syn match   yamlSingleEscape  contained display +''+
 
-syn match   yamlAnchor	"&\S\+"
-syn match   yamlAlias	"*\S\+"
-syn match   yamlType		    "![^\s]\+\s\@="
+syn match   yamlAnchor  "&\S\+"
+syn match   yamlAlias "*\S\+"
+syn match   yamlType        "![^\s]\+\s\@="
 
 if version >= 508 || !exist("did_yaml_syn")
   if version < 508
@@ -100,30 +99,30 @@ if version >= 508 || !exist("did_yaml_syn")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  HiLink yamlKey		        Identifier
-  HiLink yamlType	        Type
-  HiLink yamlInteger	        Number
-  HiLink yamlFloating        Float
-  HiLink yamlNumber          Number
-  HiLink yamlEscape	        Special
-  HiLink yamlSingleEscape    SpecialChar
-  HiLink yamlComment	        Comment
-  HiLink yamlBlock	        Operator
-  HiLink yamlDelimiter	    Delimiter
-  HiLink yamlString	        String
-  HiLink yamlBoolean	        Boolean
-  HiLink yamlNull	        Boolean
-  HiLink yamlTodo            Todo
-  HiLink yamlDocumentHeader  PreProc
-  HiLink yamlDocumentEnd     PreProc
-  HiLink yamlDirective       Keyword
-  HiLink yamlNodeProperty    Type
-  HiLink yamlAnchor          Type
-  HiLink yamlAlias           Type
-  HiLink yamlOperator        Operator
-  HiLink yamlScalar          String
-  HiLink yamlConstant        Constant
-  HiLink yamlTimestamp       Number
+  HiLink yamlKey            Identifier
+  HiLink yamlType           Type
+  HiLink yamlInteger        Number
+  HiLink yamlFloating       Float
+  HiLink yamlNumber         Number
+  HiLink yamlEscape         Special
+  HiLink yamlSingleEscape   SpecialChar
+  HiLink yamlComment        Comment
+  HiLink yamlBlock          Operator
+  HiLink yamlDelimiter      Delimiter
+  HiLink yamlString         String
+  HiLink yamlBoolean        Boolean
+  HiLink yamlNull           Boolean
+  HiLink yamlTodo           Todo
+  HiLink yamlDocumentHeader PreProc
+  HiLink yamlDocumentEnd    PreProc
+  HiLink yamlDirective      Keyword
+  HiLink yamlNodeProperty   Type
+  HiLink yamlAnchor         Type
+  HiLink yamlAlias          Type
+  HiLink yamlOperator       Operator
+  HiLink yamlScalar         String
+  HiLink yamlConstant       Constant
+  HiLink yamlTimestamp      Number
 
   delcommand HiLink
 endif
