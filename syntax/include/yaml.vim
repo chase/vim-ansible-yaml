@@ -36,8 +36,8 @@ syn match   yamlDelimiter       "[-,:]\s*" contained
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
-syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' skip='[{}]}' end='\%(\ze[,}]\|$\)' keepend oneline contains=yamlKey,@yamlTypes,yamlScalar
-syn match   yamlScalar         '\%(\s*\w\+\)\{2,}' contained
+syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' skip='[{}]}' end='\%(\ze[,}]\+\|$\)' keepend oneline contains=yamlKey,@yamlTypes,yamlScalar
+syn match   yamlScalar         '\%(\s*\w\+\)\{2,}$' contained
 syn cluster yamlTypes          contains=yamlString,yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime,yamlComment
 syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=@yamlTypes contains=yamlDelimiter
 
