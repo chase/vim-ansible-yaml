@@ -16,18 +16,18 @@ syntax case match
 
 " Jinja template built-in tags and parameters (without filter, macro, is and raw, they
 " have special threatment)
-syn keyword jinjaStatement containedin=jinjaVarBlock,jinjaNested contained and if else elif is in not or recursive as import
+syn keyword jinjaStatement contained and if else elif is in not or recursive as import
 
-syn keyword jinjaStatement containedin=jinjaVarBlock,jinjaNested contained is filter skipwhite nextgroup=jinjaFilter
+syn keyword jinjaStatement contained is filter skipwhite nextgroup=jinjaFilter
 syn keyword jinjaStatement containedin=jinjaTagBlock contained macro skipwhite nextgroup=jinjaFunction
 syn keyword jinjaStatement containedin=jinjaTagBlock contained block skipwhite nextgroup=jinjaBlockName
 
 " Variable Names
-syn match jinjaVariable containedin=jinjaVarBlock,jinjaNested contained /[a-zA-Z_][a-zA-Z0-9_]*/
-syn keyword jinjaSpecial containedin=jinjaVarBlock,jinjaNested contained false true none False True None loop super caller varargs kwargs
+syn match jinjaVariable contained /[a-zA-Z_][a-zA-Z0-9_]*/
+syn keyword jinjaSpecial contained false true none False True None loop super caller varargs kwargs
 
 " Filters
-syn match jinjaOperator "|" containedin=jinjaVarBlock,jinjaNested contained skipwhite nextgroup=jinjaFilter
+syn match jinjaOperator "|" contained skipwhite nextgroup=jinjaFilter
 syn keyword jinjaFilter contained abs attr batch capitalize center default
 syn keyword jinjaFilter contained dictsort escape filesizeformat first
 syn keyword jinjaFilter contained float forceescape format groupby indent
@@ -39,22 +39,25 @@ syn keyword jinjaFilter contained wordcount wordwrap
 syn match jinjaBlockName contained /[a-zA-Z_][a-zA-Z0-9_]*/
 
 " Jinja template constants
-syn region jinjaString containedin=jinjaVarBlock,jinjaNested contained start=/"/ skip=/\\"/ end=/"/
-syn region jinjaString containedin=jinjaVarBlock,jinjaNested contained start=/'/ skip=/\\'/ end=/'/
-syn match jinjaNumber containedin=jinjaVarBlock,jinjaNested contained /[0-9]\+\(\.[0-9]\+\)\?/
+syn region jinjaString contained start=/"/ skip=/\\"/ end=/"/
+syn region jinjaString contained start=/'/ skip=/\\'/ end=/'/
+syn match jinjaNumber contained /[0-9]\+\(\.[0-9]\+\)\?/
 
 " Operators
-syn match jinjaOperator containedin=jinjaVarBlock,jinjaNested contained /[+\-*\/<>=!,:]/
-syn match jinjaPunctuation containedin=jinjaVarBlock,jinjaNested contained /[()\[\]]/
-syn match jinjaOperator containedin=jinjaVarBlock,jinjaNested contained /\./ nextgroup=jinjaAttribute
+syn match jinjaOperator contained /[+\-*\/<>=!,:]/
+syn match jinjaPunctuation contained /[()\[\]]/
+syn match jinjaOperator contained /\./ nextgroup=jinjaAttribute
 syn match jinjaAttribute contained /[a-zA-Z_][a-zA-Z0-9_]*/
 
 " Jinja template tag and variable blocks
-syn region jinjaNested matchgroup=jinjaDelimiter start="(" end=")" transparent display containedin=jinjaVarBlock,jinjaNested contained
-syn region jinjaNested matchgroup=jinjaOperator start="\[" end="\]" transparent display containedin=jinjaVarBlock,jinjaNested contained
-syn region jinjaNested matchgroup=jinjaDelimiter start="{" end="}" transparent display containedin=jinjaVarBlock,jinjaNested contained
+syn cluster jinjaNestedElement contains=jinjaNested,jinjaNumber,jinjaOperator,
+      \jinjaPunctuation,jinjaSpecial,jinjaStatement,jinjaString,jinjaVariable
+syn region jinjaNested matchgroup=jinjaDelimiter start="(" end=")" transparent display contained contains=@jinjaNestedElement
+syn region jinjaNested matchgroup=jinjaOperator start="\[" end="\]" transparent display contained contains=@jinjaNestedElement
+syn region jinjaNested matchgroup=jinjaDelimiter start="{" end="}" transparent display contained contains=@jinjaNestedElement
 
-syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{{-\?/ end=/-\?}}/ containedin=ALLBUT,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested
+syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{{-\?/ end=/-\?}}/
+      \ containedin=ALLBUT,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested contains=@jinjaNestedElement
 
 " Jinja template 'raw' tag
 syn region jinjaRaw matchgroup=jinjaRawDelim start="{%\s*raw\s*%}" end="{%\s*endraw\s*%}" containedin=ALLBUT,jinjaVarBlock,jinjaString
