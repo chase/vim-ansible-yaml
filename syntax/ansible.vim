@@ -21,8 +21,14 @@ unlet b:current_syntax
 
 syn case match
 
-syn match ansibleRepeat '\<with_\w\+\>' contained containedin=yamlKey
-syn keyword ansibleConditional when changed_when  contained containedin=yamlKey
+" Override yamlKey, since the last-defined syntax item wins.
+syn match ansibleKey "\<\(when\|changed_when\|with_\w\+\):" transparent
+      \ contained containedin=yamlMapping contains=ansibleRepeat,ansibleConditional
+      \ nextgroup=ansibleVarBlock skipwhite
+" This group has to end when the yamlMapping ends.
+syn match ansibleVarBlock contained "\S.*$" contains=@jinjaNestedElement
+syn match ansibleRepeat '\<with_\w\+\>' contained
+syn keyword ansibleConditional when changed_when  contained
 syn region ansibleString  start='"' end='"' skip='\\"' display contains=jinjaVarBlock
 
 if version >= 508 || !exist("did_ansible_syn")
