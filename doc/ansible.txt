@@ -56,6 +56,10 @@ This plugin is only available if 'compatible' is not set.
 
 2. Detection						*ansible-detection*
 
+You can tell vim to recognize a file as Ansible by adding a |modeline| near
+the top or bottom of the file: >
+	# vim:ft=ansible:
+
 A file is recognized as an Ansible YAML file, and its filetype is set to
 `ansible`, if
 

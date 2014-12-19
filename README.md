@@ -2,7 +2,7 @@
 
 Adds additional syntax highlighting and fixes indentation for Ansible's dialect of YAML.
 
-Ansible YAML files are detected based on the presence of a
+Ansible YAML files are detected based on the presence of a modeline or a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
 For details, see the Detection section below.
 
@@ -44,6 +44,11 @@ For details, see the Detection section below.
 2. Install the help file.  From inside vim,  `:helptags ~/.vim/doc`.
 
 ## Detection
+
+You can tell vim to recognize a file as Ansible by adding a modeline near the top or bottom of the file:
+```
+# vim:ft=ansible:
+```
 
 A file is recognized as an Ansible YAML file, and its filetype is set to `ansible`, if
 
