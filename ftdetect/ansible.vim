@@ -1,7 +1,10 @@
 " Determine if normal YAML or Ansible YAML
-" Language:         YAML (with Ansible)
-" Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2013-12-09
+" Language:        YAML (with Ansible)
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
+" Author:          Chase Colman <chase@colman.io>
+" Version:         1.0
+" Latest Revision: 2014-11-10
+" URL:             https://github.com/chase/vim-ansible-yaml
 
 autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
 

@@ -1,9 +1,9 @@
 " Ansible/YAML filetype plugin
-" Language:     YAML (with Ansible)
-" Maintainer:   Benji Fisher, Ph.D. <benji@FisherFam.org>
-" Version:	1.0
-" Last Change:	Mon 10 Nov 2014
-" URL:		http://FIXME
+" Language:        YAML (with Ansible)
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>rg>
+" Version:         1.0
+" Latest Revision: 2014-11-10
+" URL:             https://github.com/chase/vim-ansible-yaml
 
 " Only do this when not done yet for this buffer.
 if exists("b:did_ftplugin")

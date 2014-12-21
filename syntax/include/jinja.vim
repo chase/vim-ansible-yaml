@@ -1,8 +1,12 @@
 " jinja syntax file
-" Language: Jinja YAML Template
-" Maintainer:Chase Colman <chase@colman.io>
-" Author: Armin Ronacher <armin.ronacher@active-4.com>
+" Language:        Jinja YAML Template
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
+" Author:          Chase Colman <chase@colman.io>
+" Author:          Armin Ronacher <armin.ronacher@active-4.com>
+" Version:         1.0
 " Latest Revision: 2013-12-10
+" URL:             https://github.com/chase/vim-ansible-yaml
+
 if !exists("main_syntax")
   if version < 600
     syntax clear
