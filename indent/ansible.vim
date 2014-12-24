@@ -1,7 +1,10 @@
 " Vim indent file
-" Language:         YAML (with Ansible)
-" Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2014-11-18
+" Language:        YAML (with Ansible)
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
+" Author:          Chase Colman <chase@colman.io>
+" Version:         1.0
+" Latest Revision: 2014-11-18
+" URL:             https://github.com/chase/vim-ansible-yaml
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")

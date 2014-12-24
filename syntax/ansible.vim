@@ -1,7 +1,10 @@
 " Vim syntax file
-" Language:         YAML (with Ansible)
-" Maintainer:       Chase Colman <chase@colman.io>
-" Latest Revision:  2014-06-28
+" Language:        YAML (with Ansible)
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
+" Author:          Chase Colman <chase@colman.io>
+" Version:         1.0
+" Latest Revision: 2014-06-28
+" URL:             https://github.com/chase/vim-ansible-yaml
 
 if !exists("main_syntax")
   if version < 600

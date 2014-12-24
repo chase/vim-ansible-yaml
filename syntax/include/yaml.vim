@@ -1,10 +1,11 @@
 " Vim syntax file
 " Language:        YAML (YAML Ain't Markup Language)
-" Maintainer:      Chase Colman <chase@colman.io>
+" Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
+" Author:          Chase Colman <chase@colman.io>
 " Author:          Igor Vergeichik <iverg@mail.ru>
 " Author:          Nikolai Weibull <now@bitwi.se>
 " Sponsor:         Tom Sawyer <transfire@gmail.com>
-" Latest Revision: 2014-06-28
+" Latest Revision: 2014-12-08
 
 if !exists("main_syntax")
   if version < 600
