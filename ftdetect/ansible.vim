@@ -3,17 +3,18 @@
 " Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
 " Author:          Chase Colman <chase@colman.io>
 " Version:         1.0
-" Latest Revision: 2014-11-10
+" Latest Revision: 2015-02-03
 " URL:             https://github.com/chase/vim-ansible-yaml
 
-autocmd BufNewFile,BufRead *.yml  call s:SelectAnsible()
+autocmd BufNewFile,BufRead *.yml,*/{group,host}_vars/*  call s:SelectAnsible()
 
 fun! s:SelectAnsible()
   let fp = expand("<afile>:p")
   let dir = expand("<afile>:p:h")
 
   " Check if buffer is file under any directory of a 'roles' directory
-  if fp =~ '/roles/.*\.yml$'
+  " or under any *_vars directory
+  if fp =~ '/roles/.*\.yml$' || fp =~ '/\(group\|host\)_vars/'
     set filetype=ansible
     return
   endif
