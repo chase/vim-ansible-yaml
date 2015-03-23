@@ -3,12 +3,17 @@
 " Maintainer:      Benji Fisher, Ph.D. <benji@FisherFam.org>
 " Author:          Chase Colman <chase@colman.io>
 " Version:         1.0
-" Latest Revision: 2015-02-03
+" Latest Revision: 2015-03-23
 " URL:             https://github.com/chase/vim-ansible-yaml
 
 autocmd BufNewFile,BufRead *.yml,*/{group,host}_vars/*  call s:SelectAnsible()
 
 fun! s:SelectAnsible()
+  " Bail out if 'filetype' is already set to "ansible".
+  if index(split(&ft, '\.'), 'ansible') != -1
+    return
+  endif
+
   let fp = expand("<afile>:p")
   let dir = expand("<afile>:p:h")
 
