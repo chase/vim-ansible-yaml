@@ -57,6 +57,16 @@ A file is recognized as an Ansible YAML file, and its filetype is set to `ansibl
   1. The file is somewhere under a directory named `roles`.
   2. The file is in the same directory as a directory (or file) named `group_vars`, `host_vars`, or `roles`.
 
+A local configuration for Ansible files can be done with a line like this in the **project** `.vimrc`:
+```
+au BufNewFile,BufRead your*.yml set filetype=ansible
+```
+To allow for a project `.vimrc` you are required to enable the `exrc` setting without the `secure` setting. Note that this can be a security risk if you open fielsfiles from unsafe projects!
+```
+set exrc
+set nosecure
+```
+
 ## Configuration
 
 So far, there is only one option. Others may be added later.
