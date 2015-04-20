@@ -88,8 +88,12 @@ function GetAnsibleIndent(lnum)
   let previndent = indent(prevlnum)
   let increase = previndent + &sw
 
+  " Do not align comments.
+  if prevline =~ s:pat_comment
+      return previndent
+
   " Handle "dict:".
-  if prevline =~ s:pat_dict_start
+  elseif prevline =~ s:pat_dict_start
     if getline(a:lnum) =~ s:pat_list_item && !s:indent_list_entries
       return previndent
     endif
@@ -117,7 +121,6 @@ function GetAnsibleIndent(lnum)
   elseif prevline =~ s:pat_list_item
     return increase
 
-  " Do not align comments.
   elseif curline =~ s:pat_comment
       return -1
 
