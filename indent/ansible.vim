@@ -33,7 +33,7 @@ let s:indent_list_entries = get(g:ansible_options, 'indent_list_entries', 1)
 
 " Patterns used internally.
 let s:pat_comment = '\v^\s*#'
-let s:pat_dict_start = '\v^\s*[^:-]+:\s*$'
+let s:pat_dict_start = '\v^\s*[^:-]+:\s*[>|]?$'
 let s:pat_dict_item = '\v^\s*[^:-]+:\s*\S'
 let s:pat_list_item = '\v^\s*-(\s|$)'
 
