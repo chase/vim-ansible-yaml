@@ -2,6 +2,9 @@
 
 Adds additional syntax highlighting and fixes indentation for Ansible's dialect of YAML.
 
+Allows the use of the K key in normal mode to search the ansible docs for the keyword underneath the current
+cursor position.
+
 Ansible YAML files are detected based on the presence of a modeline or a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
 For details, see the Detection section below.
