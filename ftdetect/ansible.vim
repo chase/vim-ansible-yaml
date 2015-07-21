@@ -7,7 +7,7 @@
 " URL:             https://github.com/chase/vim-ansible-yaml
 
 autocmd BufNewFile,BufRead *.yml,*/{group,host}_vars/*  call s:SelectAnsible("ansible")
-autocmd BufNewFile,BufRead hosts call s:SelectAnsible("ansible-hosts")
+autocmd BufNewFile,BufRead hosts call s:SelectAnsible("ansible_hosts")
 
 fun! s:SelectAnsible(fileType)
   " Bail out if 'filetype' is already set to "ansible".
