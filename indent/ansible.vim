@@ -42,6 +42,8 @@ function GetAnsibleIndent(lnum)
     return indent
   elseif prevline =~ ':\s*[>|]?$'
     return increase
+  elseif prevline =~ ':$'
+    return increase
   elseif prevline =~ '^\s*-\s*$'
     return increase
   elseif prevline =~ '^\s*-\s\+[^:]\+:\s*\S'
