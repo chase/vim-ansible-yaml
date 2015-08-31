@@ -1,5 +1,10 @@
 # vim-ansible-yaml
 
+### Maintainer wanted!
+I don't have time to maintain this and haven't used Ansible in quite some time. If anyone would like to come in as a collaborater and maintain it, feel free to open up an issue!
+
+---
+
 Adds additional syntax highlighting and fixes indentation for Ansible's dialect of YAML.
 
 Allows the use of the K key in normal mode to search the ansible docs for the keyword underneath the current
@@ -82,6 +87,9 @@ tasks:
 If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is not present, or the value is not `0`, then the indent function uses the default behavior.
 
 ## Thanks
-A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.  
+[Benji Fisher](https://github.com/bejifisher) helped out a great amount as a maintainer, thanks a ton!
+
+A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.
+
 Also, thank you, [Armin Ronacher](https://github.com/mitsuhiko), for the
 simple and effective Jinja syntax file.
