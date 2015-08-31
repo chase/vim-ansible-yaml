@@ -23,6 +23,8 @@ let &cpo = s:save_cpo
 unlet s:save_cpo
 
 " Remap K to look in ansible-doc for keyword under cursor
-nmap K :!ansible-doc <C-R><C-W> *<CR>
+if exists("g:ansible_doc_mapping")
+  nmap K :!ansible-doc <C-R><C-W> *<CR>
+endif
 
 " vim:sts=2:sw=2:
