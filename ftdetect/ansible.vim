@@ -6,7 +6,7 @@
 " Latest Revision: 2015-03-23
 " URL:             https://github.com/chase/vim-ansible-yaml
 
-autocmd BufNewFile,BufRead *.yml,*/{group,host}_vars/*  call s:SelectAnsible("ansible")
+autocmd BufNewFile,BufRead *.yml,*.yaml,*/{group,host}_vars/*  call s:SelectAnsible("ansible")
 autocmd BufNewFile,BufRead hosts call s:SelectAnsible("ansible_hosts")
 
 fun! s:SelectAnsible(fileType)
@@ -20,7 +20,7 @@ fun! s:SelectAnsible(fileType)
 
   " Check if buffer is file under any directory of a 'roles' directory
   " or under any *_vars directory
-  if fp =~ '/roles/.*\.yml$' || fp =~ '/\(group\|host\)_vars/'
+  if fp =~ '/roles/.*\.y\(a\)\?ml$' || fp =~ '/\(group\|host\)_vars/'
     execute "set filetype=" . a:fileType
     return
   endif
