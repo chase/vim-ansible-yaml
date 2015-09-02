@@ -7,8 +7,8 @@ I don't have time to maintain this and haven't used Ansible in quite some time. 
 
 Adds additional syntax highlighting and fixes indentation for Ansible's dialect of YAML.
 
-Allows the use of the K key in normal mode to search the ansible docs for the keyword underneath the current
-cursor position. Set this option in your vimrc to enable: `let g:ansible_doc_mapping = 1`.
+Allows a user-specified mapping in normal mode to search the ansible docs for the keyword underneath the current
+cursor position. See below for configuration.
 
 Ansible YAML files are detected based on the presence of a modeline or a
 [structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
@@ -67,7 +67,9 @@ A file is recognized as an Ansible YAML file, and its filetype is set to `ansibl
 
 ## Configuration
 
-So far, there is only one option. Others may be added later.
+All configuration options will live under `g:ansible_options`.
+
+### ignore_blank_lines
 
 If you define
 
@@ -85,6 +87,12 @@ tasks:
 ```
 
 If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is not present, or the value is not `0`, then the indent function uses the default behavior.
+
+### documentation_mapping
+
+The documentation_mapping option enables setting a custom mapping to search the Ansible documentation for the word under the cursor.
+
+It can be enabled as such: `let g:ansible_options = {'documentation_mapping': '<C-K>'}` - which would bind Control-K to perform the search.
 
 ## Thanks
 [Benji Fisher](https://github.com/bejifisher) helped out a great amount as a maintainer, thanks a ton!
