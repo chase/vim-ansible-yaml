@@ -37,7 +37,11 @@ syn match   yamlDelimiter       "[-,:]\s*" contained
 
 syn match   yamlBlock           "[\[\]\{\}>|]"
 syn match   yamlOperator        '[?+-]'
-syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey,yamlScalar
+" - yamlBlock is contained here in the mapping because having the mapping end
+" at $ clobbers detecting yamlBlock endings.
+" - Without re-writing quite a bit of this logic this seems like the cleanest
+"   way to fix this
+syn region  yamlMapping        start='\w\+\%(\s\+\w\+\)*\s*\ze:' end='$' keepend oneline contains=yamlKey,yamlScalar,yamlBlock
 syn match   yamlScalar         '\%(\W*\w\+\)\{2,}' contained contains=yamlTimestamp,yamlString,@yamlTypes,yamlBlock
 syn cluster yamlTypes          contains=yamlInteger,yamlFloating,yamlNumber,yamlBoolean,yamlConstant,yamlNull,yamlTime
 syn match   yamlKey            '\w\+\%(\s\+\w\+\)*\s*:' contained nextgroup=@yamlTypes contains=yamlDelimiter
