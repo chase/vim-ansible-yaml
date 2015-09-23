@@ -3,7 +3,7 @@
 ### Maintainer wanted!
 I don't have time to maintain this and haven't used Ansible in quite some time. If anyone would like to come in as a collaborater and maintain it, feel free to open up an issue!
 
-*Also, if you feel like this bundle isn't quite what you'd want, check out [ansible-vim](/pearofducks/ansible-vim) by @pearofducks!*
+*Also, if you feel like this bundle isn't quite what you'd want, check out [ansible-vim](https://github.com/pearofducks/ansible-vim) by @pearofducks!*
 
 ---
 
