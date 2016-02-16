@@ -62,7 +62,7 @@ You can tell vim to recognize a file as Ansible by adding a modeline near the to
 
 A file is recognized as an Ansible YAML file, and its filetype is set to `ansible`, if
 
-1. The extensions is `.yml`
+1. The extensions is `.yml` or '.yaml'
 2. AND one of the following conditions holds:
   1. The file is somewhere under a directory named `roles`.
   2. The file is in the same directory as a directory (or file) named `group_vars`, `host_vars`, or `roles`.
