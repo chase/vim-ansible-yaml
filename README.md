@@ -97,7 +97,7 @@ The documentation_mapping option enables setting a custom mapping to search the 
 It can be enabled as such: `let g:ansible_options = {'documentation_mapping': '<C-K>'}` - which would bind Control-K to perform the search.
 
 ## Thanks
-[Benji Fisher](https://github.com/bejifisher) helped out a great amount as a maintainer, thanks a ton!
+[Benji Fisher](https://github.com/benjifisher) helped out a great amount as a maintainer, thanks a ton!
 
 A huge thanks to [Igor Vergeichik](mailto:iverg@mail.ru) and [Nikolai Weibull](https://github.com/now) for their work on the YAML syntax that this bundle uses.
 
