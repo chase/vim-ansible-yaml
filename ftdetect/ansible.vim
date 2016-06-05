@@ -21,7 +21,7 @@ fun! s:SelectAnsible(fileType)
   " Check if buffer is file under any directory of a 'roles' directory
   " or under any *_vars directory
   if fp =~ '/roles/.*\.y\(a\)\?ml$' || fp =~ '/\(group\|host\)_vars/'
-    execute "set filetype=" . a:fileType
+    execute "set filetype=" . a:fileType . '.yaml'
     return
   endif
 
