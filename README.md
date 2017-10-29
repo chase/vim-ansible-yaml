@@ -13,7 +13,7 @@ Allows a user-specified mapping in normal mode to search the ansible docs for th
 cursor position. See below for configuration.
 
 Ansible YAML files are detected based on the presence of a modeline or a
-[structure following Ansible's Playbook Best Practices](http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
+[structure following Ansible's Playbook Best Practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#directory-layout).
 For details, see the Detection section below.
 
 ## Install
